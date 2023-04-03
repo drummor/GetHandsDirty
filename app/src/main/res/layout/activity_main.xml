@@ -9,21 +9,90 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_info"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="empty!"
-        android:textColor="@color/black"
-        android:textSize="18dp" />
+        android:background="#cccccc"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="帧率采集"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/bt_poor_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="简单采集" />
+
+        <Button
+            android:id="@+id/bt_hook_choreographer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hook choreographer frame" />
+
+        <Button
+            android:id="@+id/bt_scroll_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="滑动帧率监控" />
+
+        <Button
+            android:id="@+id/bt_window_metrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WindowMetrics" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#cccccc"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手写choreographer"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="empty!"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+
+        <Button
+            android:id="@+id/bt_send_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送callback" />
+    </LinearLayout>
 
 
     <Button
-        android:id="@+id/bt_send_call_back"
+        android:id="@+id/bt_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="SendCallBack" />
+        android:text="耗时检测" />
+
+    <Button
+        android:id="@+id/bt_about_anr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关于ANR" />
+
 
 </LinearLayout>

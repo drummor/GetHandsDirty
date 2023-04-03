@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
+        android:name=".app.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,6 +14,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GetHandsDirty"
         tools:targetApi="31">
+        <activity
+            android:name=".timeconsuming.TimeConsumingDetectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".anr.ANRActivity"
+            android:exported="false" />
+        <activity
+            android:name=".frames.framemetrics.FrameMetricAvailableActivity"
+            android:exported="false" />
+        <activity
+            android:name=".frames.poorframe.PoorFrameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".frames.hookchoreographer.HookChoreographerFrameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".frames.srollframe.ScrollFrameActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
