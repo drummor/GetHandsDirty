@@ -7,7 +7,7 @@ import android.view.Choreographer
 import com.android.sample.gethandsdirty.frames.hookchoreographer.utils.ReflectUtils
 import java.lang.reflect.Method
 
-class MatrixFrameTracker : LooperMonitor.LooperListener {
+class LooperTracker : LooperMonitor.LooperListener {
     private val tag = "MatrixFrameTracker"
 
     var frameIntervalNanos = 16666667L
@@ -24,8 +24,8 @@ class MatrixFrameTracker : LooperMonitor.LooperListener {
     private var startTime = 0L
 
     companion object {
-        private val frameTracker: MatrixFrameTracker = MatrixFrameTracker()
-        fun getFrameTracker(): MatrixFrameTracker {
+        private val frameTracker: LooperTracker = LooperTracker()
+        fun getFrameTracker(): LooperTracker {
             frameTracker.init()
             return frameTracker
         }

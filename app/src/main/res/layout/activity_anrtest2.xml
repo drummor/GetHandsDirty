@@ -4,18 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".anr.ANRActivity">
-
-    <Button
-        android:id="@+id/bt_fetch_dump"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="bt_fetch_dump" />
+    android:padding="16dp"
+    tools:context=".anr.ANRTestActivity">
 
     <Button
         android:id="@+id/bt_catch_anr"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="获取ANT信息" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

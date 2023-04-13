@@ -3,4 +3,13 @@
     <style name="Theme.GetHandsDirty" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/purple_500</item>
     </style>
+
+    <style name="Theme.GetHandsDirty.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.GetHandsDirty.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.GetHandsDirty.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

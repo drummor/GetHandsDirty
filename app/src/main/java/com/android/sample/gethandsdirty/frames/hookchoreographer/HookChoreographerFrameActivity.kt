@@ -10,7 +10,7 @@ import com.android.sample.gethandsdirty.frames.common.CostArrayAdapter
 import com.android.sample.gethandsdirty.frames.common.FrameLineChartView
 import com.android.sample.gethandsdirty.frames.common.OnFpsChangeListener
 
-class HookChoreographerFrameActivity : AppCompatActivity(), MatrixFrameTracker.FrameListener {
+class HookChoreographerFrameActivity : AppCompatActivity(), LooperTracker.FrameListener {
     private lateinit var frameLineChartView: FrameLineChartView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class HookChoreographerFrameActivity : AppCompatActivity(), MatrixFrameTracker.F
         }
         findViewById<ListView>(R.id.list_view).adapter =
             CostArrayAdapter(this, R.layout.array_adapter_item, list)
-        MatrixFrameTracker.getFrameTracker().register(Listener())
+        LooperTracker.getFrameTracker().register(Listener())
     }
 
 
@@ -32,7 +32,7 @@ class HookChoreographerFrameActivity : AppCompatActivity(), MatrixFrameTracker.F
         frameLineChartView.addFps(dropFrame)
     }
 
-    inner class Listener : OnFpsChangeListener(), MatrixFrameTracker.FrameListener {
+    inner class Listener : OnFpsChangeListener(), LooperTracker.FrameListener {
         override fun onFpsChange(fps: Int) {
             frameLineChartView.addFps(fps)
         }
