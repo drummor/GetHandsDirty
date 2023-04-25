@@ -7,19 +7,6 @@ enum class TaskType {
 }
 
 
-class TaskInfo {
-    val target: Object? = null;
-    val callback = 0;
-    val what = 0;
-}
-
-class RecordInfo() {
-    var recordType: TaskType? = null;
-    var messageInfo: TaskInfo? = null//message信息
-    var stackInfo: String? = ""//堆栈信息
-    var taskCost: String? = null//耗时信息
-}
-
 data class MessageInfo(
     var handler: String = "",
     var callback: String = "",
@@ -29,8 +16,14 @@ data class MessageInfo(
     var startTime: Long = 0,
     var endTime: Long = 0,
     var cost: Long = 0
-)
-
+) {
+    companion object {
+        //todo:池化
+        fun obtain(): MessageInfo {
+            return MessageInfo()
+        }
+    }
+}
 
 fun parseMessageInfo(msg: String): MessageInfo {
     var boxMessage: MessageInfo = MessageInfo()
@@ -58,14 +51,4 @@ fun parseMessageInfo(msg: String): MessageInfo {
         e.printStackTrace()
     }
     return boxMessage
-}
-
-object TaskInfoManager {
-    private val list = ArrayList<TaskInfo>()
-    fun appendInfo(taskInfo: TaskInfo) {
-        list.add(taskInfo)
-    }
-
-    fun dumpMessage() {
-    }
 }

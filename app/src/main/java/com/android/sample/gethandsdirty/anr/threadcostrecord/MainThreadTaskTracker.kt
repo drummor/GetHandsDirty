@@ -5,6 +5,19 @@ import android.util.Log
 import android.util.Printer
 import com.android.sample.gethandsdirty.frames.hookchoreographer.LooperMonitor
 
+class MainThreadMsgInfo {
+    var historyMessage: List<MessageInfo> = emptyList()
+    var currentMessage: List<MessageInfo> = emptyList()
+    var futureMessage: List<MessageInfo> = emptyList()
+
+    companion object {
+
+    }
+}
+
+/*
+    主线程调度信息
+ */
 object MainThreadTaskTracker : LooperMonitor.LooperListener {
 
     private val historyMessage = ArrayList<MessageInfo>()
@@ -21,7 +34,6 @@ object MainThreadTaskTracker : LooperMonitor.LooperListener {
         LooperMonitor.getInstance(Looper.getMainLooper()).registerListener(this)
     }
 
-
     override fun dispatchStart(originString: String) {
         val msgInfo = parseMessageInfo(originString)
         msgInfo.apply { this.startTime = System.currentTimeMillis() }
@@ -37,11 +49,11 @@ object MainThreadTaskTracker : LooperMonitor.LooperListener {
 
     private fun recordeMessageInfo(msgInfo: MessageInfo) {
         msgInfo.cost = msgInfo.endTime - msgInfo.startTime
+        //todo 分类型
         if (msgInfo.cost > 50) {
             historyMessage.add(msgInfo)
         }
     }
-
 
     fun dumpMainThreadTaskInfo(): String {
         val histMsg = dumpHistMessage()

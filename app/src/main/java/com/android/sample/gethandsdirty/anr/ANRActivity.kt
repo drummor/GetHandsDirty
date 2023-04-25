@@ -27,7 +27,7 @@ class ANRActivity : AppCompatActivity() {
             Log.d("ANRActivity", "获取cpu的个数:" + CpuInfoUtils.getNumberOfCPUCores())
         }
 
-        MainThreadTaskTracker.init()
+
         findViewById<Button>(R.id.bt_catch_anr).setOnClickListener {
             Thread.sleep(7_000)
             ANRInfoHunter.startCollect()

@@ -14,6 +14,7 @@ import com.android.sample.gethandsdirty.frames.framemetrics.FrameMetricAvailable
 import com.android.sample.gethandsdirty.frames.hookchoreographer.HookChoreographerFrameActivity
 import com.android.sample.gethandsdirty.frames.poorframe.PoorFrameActivity
 import com.android.sample.gethandsdirty.frames.srollframe.ScrollFrameActivity
+import com.android.sample.gethandsdirty.memory.MemoryActivity
 import com.android.sample.gethandsdirty.timeconsuming.TimeConsumingDetectActivity
 
 /*
@@ -29,6 +30,10 @@ class MainActivity : AppCompatActivity() {
         handlerThread.start()
 
         setContentView(R.layout.activity_main)
+
+        findViewById<Button>(R.id.bt_memory).setOnClickListener {
+            MemoryActivity.start(this)
+        }
 
         findViewById<Button>(R.id.bt_poor_frame).setOnClickListener {
             PoorFrameActivity.start(this)
